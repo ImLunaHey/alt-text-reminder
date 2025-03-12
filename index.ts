@@ -17,25 +17,24 @@ const main = async () => {
   console.info(`bot logged in as ${username}`);
 
   bot.on('reply', async (message) => {
-    const text = JSON.stringify(message.text, null, 2);
     if (!message.embed || !message.embed?.isImages()) {
-      console.info(`Message from ${message.author.displayName} is not an image: "${text}"`);
+      console.info(`Message from ${message.author.displayName} is not an image.`);
       return;
     }
 
     const hasAltText = message.embed.images.every((image) => image.alt);
     if (hasAltText) {
-      console.info(`Message from ${message.author.displayName} has alt text: "${text}"`);
+      console.info(`Message from ${message.author.displayName} has alt text.`);
       return;
     }
 
-    console.info(`Replying to message from ${message.author.displayName}: "${text}"`);
+    console.info(`Replying to message from ${message.author.displayName}.`);
     try {
       await message.reply({
-        text: 'please add alt text to your images',
+        text: 'please add alt text to your images\n\nsettings → accessibility → require alt text before posting',
       });
     } catch (error) {
-      console.error(`Error replying to message from ${message.author.displayName}: "${text}"`, error);
+      console.error(`Error replying to message from ${message.author.displayName}.`, error);
     }
   });
 };
