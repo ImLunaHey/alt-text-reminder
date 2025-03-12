@@ -17,7 +17,7 @@ const main = async () => {
   console.info(`bot logged in as ${username}`);
 
   bot.on('reply', async (message) => {
-    const text = JSON.stringify(message, null, 2);
+    const text = JSON.stringify(message.text, null, 2);
     if (!message.embed || !message.embed?.isImages()) {
       console.info(`Message from ${message.author.displayName} is not an image: "${text}"`);
       return;
