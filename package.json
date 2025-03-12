@@ -3,7 +3,11 @@
     "@atproto/api": "^0.14.9",
     "@skyware/bot": "^0.3.8",
     "@skyware/jetstream": "^0.2.2",
-    "dotenv": "^16.4.7"
+    "dotenv": "^16.4.7",
+    "tsx": "^4.19.3"
+  },
+  "scripts": {
+    "start": "tsx index.ts"
   },
   "devDependencies": {
     "@types/node": "^22.13.10"
